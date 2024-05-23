@@ -36,7 +36,7 @@ app.use(cookieParser());
 var corsOptions = {
     origin: [
       "http://localhost:3000",
-      "https://myntra.com",
+     
       "https://awdiz-6-react.vercel.app",
     ],
     credentials: true,
