@@ -28,6 +28,7 @@ const connectToMongo = async () => {
 connectToMongo();
 const jwtSecret = process.env.JWT_SECRET;
 const bcryptSalt = bcrypt.genSaltSync(10);
+const app = express();
 var corsOptions = {
   origin: [
     "http://localhost:3000",
@@ -37,7 +38,7 @@ var corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-const app = express();
+
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.json());
 app.use(cookieParser());
