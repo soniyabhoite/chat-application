@@ -36,6 +36,10 @@ var corsOptions = {
     "https://chat-application-m4is4xkuf-soniyas-projects-56f37929.vercel.app/",
   ],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 };
 app.use(cors(corsOptions));
 
