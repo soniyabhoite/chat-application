@@ -37,7 +37,7 @@ var corsOptions = {
     origin: [
       "http://localhost:3000",
      
-      "https://chat-application-five-sandy.vercel.app/",
+      "https://chat-application-m4is4xkuf-soniyas-projects-56f37929.vercel.app/",
     ],
     credentials: true,
   };
