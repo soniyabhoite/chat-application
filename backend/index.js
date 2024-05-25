@@ -11,6 +11,21 @@ const ws = require('ws');
 const fs = require('fs');
 
 dotenv.config();
+const app = express();
+var corsOptions = {
+  origin: [
+    "http://localhost:3000",
+   
+    "https://chat-application-m4is4xkuf-soniyas-projects-56f37929.vercel.app/",
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+};
+app.use(cors(corsOptions));
+
 const connectToMongo = async () => {
     try {
         mongoose.set('strictQuery', false)
@@ -28,20 +43,6 @@ const connectToMongo = async () => {
 connectToMongo();
 const jwtSecret = process.env.JWT_SECRET;
 const bcryptSalt = bcrypt.genSaltSync(10);
-const app = express();
-var corsOptions = {
-  origin: [
-    "http://localhost:3000",
-   
-    "https://chat-application-m4is4xkuf-soniyas-projects-56f37929.vercel.app/",
-  ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-};
-app.use(cors(corsOptions));
 
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.json());
